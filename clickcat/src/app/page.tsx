@@ -1,5 +1,5 @@
 import Image from "next/image";
-import {Counter} from '@/app/components/index'
+import {Counter} from '@/components/index'
 
 export default function Home() {
   return (

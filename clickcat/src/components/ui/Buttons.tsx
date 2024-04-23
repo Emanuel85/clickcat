@@ -3,7 +3,7 @@ import React from 'react'
 import Style from './ui.module.css'
 
 
-const Buttons = ({children,...props}: propsButton ) => {  
+export const Buttons = ({children,...props}: propsButton ) => {  
 
   return (
     <div>

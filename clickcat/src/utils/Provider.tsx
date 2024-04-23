@@ -1,15 +1,21 @@
 'use client'
 import React, { ReactNode, useState } from 'react'
+import { CoinsObject } from './type'
 export const contextValueGame = React.createContext<unknown>(null)
 
+
+const Icoins: CoinsObject = {
+    miauStar: 0,
+    moonCat: 0,
+    michiCoin: 0,
+}
+
 const Provider = ({ children }: { children: ReactNode }) => {
-    const [miauStar, setMiauStar] = useState<number>(0)
-    const [moonCat, setMoonCat] = useState<number>(0)
-    const [michiCoin, setMichiCoin] = useState<number>(0)
+    const [coins, setCoins] = useState<CoinsObject>(Icoins)
 
 
     return (
-        <contextValueGame.Provider value={{ miauStar, setMiauStar, moonCat, setMoonCat, michiCoin, setMichiCoin }}>
+        <contextValueGame.Provider value={{ coins, setCoins }}>
             {children}
         </contextValueGame.Provider>
     )
