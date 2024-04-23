@@ -2,16 +2,26 @@
 import React, { useContext } from 'react'
 import Buttons from '@/app/components/ui/Buttons'
 import { contextValueGame } from '@/utils/Provider'
+import { Random } from "random-js";
 
 const index = () => {
 
-  const { miauStar, setMiauStar } = useContext<any>(contextValueGame)
+  const { miauStar, setMiauStar, moonCat, setMoonCat, michiCoin, setMichiCoin } = useContext<any>(contextValueGame)
 
   const handleCount = () => {
+    const michiCoinProvisorio = 10
+    const moonCatProvisorio = 30
     setMiauStar(miauStar + 1)
-    generarMonedas()
-  }
+    const random = new Random();
+    const michiCoinRandom = random.real(0, 100, true);
+    const moonCatRandom = random.real(0, 100, true);
 
+    if (michiCoinRandom <= michiCoinProvisorio) setMichiCoin(michiCoin + 1)
+    if (moonCatRandom <= moonCatProvisorio) setMoonCat(moonCat + 1)
+
+      console.log(michiCoinRandom,"Michicoin")
+      console.log(moonCatRandom,"Mooncat")
+  }
 
 
 
@@ -19,7 +29,9 @@ const index = () => {
 
   return (
     <div>
-      <div> {miauStar} </div>
+      <div>MiauStar: {miauStar} </div>
+      <div>MoonCat: {moonCat} </div>
+      <div>MichiCoin: {michiCoin} </div>
       <Buttons onClick={handleCount} >Prueba</Buttons>
     </div>
   )
@@ -27,34 +39,3 @@ const index = () => {
 
 export default index
 
-
-
-
-
-// function calcularProbabilidades(probabilidadSegunda, probabilidadTercera) {
-//   // Probabilidad de que salga la primera moneda siempre es 100%
-//   const probabilidadPrimera = 100;
-  
-//   // Probabilidad de que salga la segunda moneda sola
-//   const probabilidadSegundaSola = (probabilidadSegunda * (1 - probabilidadTercera))*100;
-
-//   // Probabilidad de que salga la tercera moneda sola
-//   const probabilidadTerceraSola = (probabilidadTercera * (1 - probabilidadSegunda))*100;
-
-//   // Probabilidad de que salgan ambas monedas simultáneamente
-//   const probabilidadAmbas = probabilidadSegunda * probabilidadTercera * 100;
-
-//   return {
-//       primeraMoneda: probabilidadPrimera.toFixed(2) + "%",
-//       segundaMoneda: probabilidadSegundaSola.toFixed(2) + "%",
-//       terceraMoneda: probabilidadTerceraSola.toFixed(2) + "%",
-//       ambasMonedas: probabilidadAmbas.toFixed(2) + "%"
-//   };
-// }
-
-// // Ejemplo de uso:
-// const probabilidades = calcularProbabilidades(0.4, 0.1);
-// console.log("Probabilidad de que salga la primera moneda:", probabilidades.primeraMoneda);
-// console.log("Probabilidad de que salga la segunda moneda sola:", probabilidades.segundaMoneda);
-// console.log("Probabilidad de que salga la tercera moneda sola:", probabilidades.terceraMoneda);
-// console.log("Probabilidad de que salgan ambas monedas simultáneamente:", probabilidades.ambasMonedas);
