@@ -1,42 +1,18 @@
 'use client'
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Buttons } from '@/components/ui/Buttons'
 import { contextValueGame } from '@/utils/Provider'
 import { coinsRandom } from '@/utils/functions/coinsRandom';
 
-const index = () => {
-
-  const { coins, setCoins } = useContext<any>(contextValueGame)
-
- 
+const Index = () => {
+  const { coins, setCoins, probability } = useContext(contextValueGame)
 
   const handleCount = () => {
-
-    const prueba = {
-      miauStar: 0,
-      moonCat: 0,
-      michiCoin: 0,
-    }
-    console.log(prueba)
-
-    let resultCoinsRandom = []
-    resultCoinsRandom = coinsRandom(coins)
-    console.log(resultCoinsRandom,'FUNCTION')
-    resultCoinsRandom.map(prev => (
-      prev.miauStar !== undefined ? prev.miauStar + prueba.miauStar : 0
-    ))
-
-    console.log(prueba, 'RESULTADO')
-    // setCoins((resultCoinsRandom) => ({
-    //   ...prevCoins,
-    //   ...resultCoinsRandom,
-    // }));
+    setCoins(coins => {
+      const res = coinsRandom(coins,probability)
+      return res
+    })
   }
-  //   setMiauStar(miauStar + 1)
-
-  //  setMichiCoin(michiCoin + 1)
-  //    setMoonCat(moonCat + 1)
-
   return (
     <div>
       <div>
@@ -44,10 +20,10 @@ const index = () => {
         <label>MoonCat: {coins.moonCat} </label>
         <label>MichiCoin: {coins.michiCoin} </label>
       </div>
-      <Buttons onClick={handleCount} >Prueba</Buttons>
+      <Buttons onClick={handleCount}>Prueba</Buttons>
     </div>
   )
 }
 
-export default index
+export default Index
 
