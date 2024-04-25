@@ -1,2 +1,2 @@
-export { default as Counter } from '@/components/Counter'
+export { default as Counter } from '@/components/counter'
 export { default as Ability } from '@/components/ability'

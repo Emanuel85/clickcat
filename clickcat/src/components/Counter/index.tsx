@@ -1,15 +1,15 @@
 'use client'
-import React, { useContext, useState } from 'react'
-import { Buttons } from '@/components/ui/Buttons'
+import React, { useContext } from 'react'
 import { contextValueGame } from '@/utils/Provider'
 import { coinsRandom } from '@/utils/functions/coinsRandom';
+import Style from './index.module.css'
 
 const Index = () => {
   const { coins, setCoins, probability } = useContext(contextValueGame)
 
   const handleCount = () => {
     setCoins(coins => {
-      const res = coinsRandom(coins,probability)
+      const res = coinsRandom(coins, probability)
       return res
     })
   }
@@ -20,7 +20,8 @@ const Index = () => {
         <label>MoonCat: {coins.moonCat} </label>
         <label>MichiCoin: {coins.michiCoin} </label>
       </div>
-      <Buttons onClick={handleCount}>Prueba</Buttons>
+      {/*Este button no utiliza el componente Buttons*/}
+      <button className={Style.btnPrincipal} onClick={handleCount}>Prueba</button>
     </div>
   )
 }

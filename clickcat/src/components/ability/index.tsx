@@ -5,11 +5,11 @@ import Labels from '../ui/Labels'
 import abilityData from '@/utils/JSON/ability.json'
 import { Buttons } from '../ui'
 import { probabilityFunction } from '@/utils/functions/probability';
-
+import Style from './index.module.css'
 
 const Index = () => {
 
-  const { setProbability } = useContext(contextValueGame)
+  const { probability, setProbability } = useContext(contextValueGame)
 
   const handleProbability = (value: number, id: string) => {
     setProbability(probability => {
@@ -21,16 +21,30 @@ const Index = () => {
 
   }
 
+  console.log(probability.michiProbabilityValeu)
 
   return (
     <div>Habilidades
       {abilityData.map(({ name, description, image, value, id }) => {
         return (
-          <div>
+          <div className={Style.containerAbility}>
             <Buttons
               onClick={() => handleProbability(value, id)}
-              title={`${description}`}>{name}</Buttons>
-            <Labels  >{` ${value}`}</Labels>
+              toolTipDescription={`${description}.`}
+              toolTipValueProbability={`+${value}%.`}
+              toolTipTotalProbability={`
+              ${id === 'Michicoin' ?
+                  id + " +" + probability.michiProbabilityValeu.toFixed(2) + "%."
+                  : id === 'Mooncat' ?
+                    id + " +" + probability.moonCatProbabilityValue.toFixed(2) + "%."
+                    : id + " +" + probability.moonCatProbabilityValue.toFixed(2) + "%" + " "+ " +" + probability.michiProbabilityValeu.toFixed(2) + "%."
+                }`}
+            >
+              {name}
+            </Buttons>
+            <Labels>
+
+            </Labels>
           </div>)
       })
       }
@@ -39,3 +53,10 @@ const Index = () => {
 }
 
 export default Index
+
+// {id === 'michicoint' ?
+// probability.michiProbabilityValeu.toFixed(2)
+// : id === 'mooncat' ?
+//   probability.moonCatProbabilityValue.toFixed(2)
+//   :
+//   `${probability.moonCatProbabilityValue.toFixed(2)} ${probability.michiProbabilityValeu.toFixed(2)}`}

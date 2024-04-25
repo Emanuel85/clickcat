@@ -1,11 +1,14 @@
-export interface propsButton extends React.ButtonHTMLAttributes<HTMLButtonElement> { }
+export interface propsButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    toolTipDescription: string;
+    toolTipValueProbability: string;
+    toolTipTotalProbability: string;
+}
 export interface propsLabel extends React.LabelHTMLAttributes<HTMLLabelElement> { }
 export interface CoinsObject {
     miauStar: number;
     moonCat: number;
     michiCoin: number;
 }
-
 export interface ProbabilityObject {
     michiProbabilityValeu: number,
     moonCatProbabilityValue: number

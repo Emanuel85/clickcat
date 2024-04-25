@@ -1,22 +1,22 @@
 [
 	{
-		"id":"michicoint",
+		"id":"Michicoin",
 		"name": "Habilidad 1",
-		"value": 0.5,
+		"value": 0.15,
 		"description": "Aumenta la probabilidad de la Michicoint",
 		"image": "IMAGEN"
 	},
 	{
-		"id":"mooncat",
+		"id":"Mooncat",
 		"name": "Habilidad 2",
-		"value": 4,
+		"value": 0.2,
 		"description": "Aumenta la probabilidad de la Mooncat",
 		"image": "IMAGEN"
 	},
 	{
-		"id":"michimoon",
+		"id":"Michicoin y Mooncat",
 		"name": "Habilidad 3",
-		"value": 6,
+		"value": 2,
 		"description": "Aumenta la probabilidad de la Michicoint y Mooncat",
 		"image": "IMAGEN"
 	}
