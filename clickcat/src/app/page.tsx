@@ -1,5 +1,5 @@
 import Image from "next/image";
-import {Ability, Counter} from '@/components/index'
+import {Ability, Builds, Counter} from '@/components/index'
 
 export default function Home() {
   return (
@@ -7,6 +7,7 @@ export default function Home() {
       <div className="z-10 w-screen max-w-5xl items-center justify-between font-mono text-sm lg:flex">
       <Ability/>
       <Counter/>
+      <Builds/>
       </div>
     </main>
   );

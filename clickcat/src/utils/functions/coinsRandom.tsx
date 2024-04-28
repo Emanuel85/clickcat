@@ -1,26 +1,27 @@
 import { Random } from "random-js";
-import { CoinsObject, ProbabilityObject } from '@/utils/type'
+import { CoinsObject, ProbabilityObject, ValueCoinsObject } from '@/utils/type'
+
+
+//Funcion generadora de monedas en base a probabilidad usando numeros random
+//michiProbabilityValeu y moonCatProbabilityValue son valores ajustables para alterar la probabilidad
+
 
 export function coinsRandom(
   { michiCoin, moonCat, miauStar }: CoinsObject,
-  { michiProbabilityValeu, moonCatProbabilityValue }: ProbabilityObject
+  { michiProbabilityValeu, moonCatProbabilityValue }: ProbabilityObject,
+  { miauStarValue, moonCatValue, michiCoinValue }: ValueCoinsObject
 ): CoinsObject {
-  
-  console.log('probabilidad michi',michiProbabilityValeu)
-  console.log('probabilidad moonCat',moonCatProbabilityValue)
-  
+
   const michiCoinProbability = michiProbabilityValeu
   const moonCatProbability = moonCatProbabilityValue
   const random = new Random();
   const michiCoinRandom = random.real(0, 100, true);
   const moonCatRandom = random.real(0, 100, true);
 
-console.log('Random michi',michiCoinRandom)
-console.log('Random moonCat',moonCatRandom)
 
-  if (michiCoinRandom <= michiCoinProbability) ++michiCoin;
-  if (moonCatRandom <= moonCatProbability) ++moonCat;
-  ++miauStar;
+  if (michiCoinRandom <= michiCoinProbability) michiCoin = michiCoin + michiCoinValue;
+  if (moonCatRandom <= moonCatProbability) moonCat = moonCat + moonCatValue;
+  miauStar = miauStar + miauStarValue;
 
   return { michiCoin, moonCat, miauStar }
 }

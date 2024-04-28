@@ -1,0 +1,23 @@
+[
+	{
+		"id":"Miaustar",
+		"name": "Estructura 1",
+		"value": 1,
+		"description": "Cada estructura produce",
+		"image": "IMAGEN"
+	},
+	{
+		"id":"Mooncat",
+		"name": "Estructura 2",
+		"value": 1,
+		"description": "Cada estructura produce",
+		"image": "IMAGEN"
+	},
+	{
+		"id":"Michicoin",
+		"name": "Habilidad 4",
+		"value": 1,
+		"description": "Cada estructura produce",
+		"image": "IMAGEN"
+	}
+]
