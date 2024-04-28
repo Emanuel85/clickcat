@@ -1,6 +1,6 @@
 import { ValueCoinsObject } from '@/utils/type'
 
-export function changeValueCoins(
+export default function changeValueCoins(
     { miauStarValue, moonCatValue, michiCoinValue }: ValueCoinsObject,
     value: number,
     id: string

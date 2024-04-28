@@ -1,9 +1,9 @@
-import { ProbabilityObject } from "../type";
+import { ProbabilityObject } from "@/utils/type";
 
 //funcion que suma la probabilidad comprada por el jugador
 
 
-export function sumProbability(
+export default function sumProbability(
     { michiProbabilityValeu, moonCatProbabilityValue }: ProbabilityObject,
     value: number,
     id: string

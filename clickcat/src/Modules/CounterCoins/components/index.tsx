@@ -1,7 +1,7 @@
 'use client'
 import React, { useContext } from 'react'
 import { contextValueGame } from '@/utils/Provider'
-import { coinsRandom } from '@/utils/functions/coinsRandom';
+import { coinsRandom } from '@/Modules/CounterCoins/hooks';
 import Style from './index.module.css'
 
 const Index = () => {

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import {Ability, Builds, Counter} from '@/components/index'
+import {Ability, Builds, Counter} from '@/Modules/index'
 
 export default function Home() {
   return (

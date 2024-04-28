@@ -6,7 +6,7 @@ import { CoinsObject, ProbabilityObject, ValueCoinsObject } from '@/utils/type'
 //michiProbabilityValeu y moonCatProbabilityValue son valores ajustables para alterar la probabilidad
 
 
-export function coinsRandom(
+export default function coinsRandom(
   { michiCoin, moonCat, miauStar }: CoinsObject,
   { michiProbabilityValeu, moonCatProbabilityValue }: ProbabilityObject,
   { miauStarValue, moonCatValue, michiCoinValue }: ValueCoinsObject

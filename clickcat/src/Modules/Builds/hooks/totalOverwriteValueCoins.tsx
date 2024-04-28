@@ -1,6 +1,6 @@
-import { ValueCoinsObject } from "../type";
+import { ValueCoinsObject } from "@/utils/type";
 
-export function totalOverwriteValueCoins(valueCoin: ValueCoinsObject, id: string) {
+export default function totalOverwriteValueCoins(valueCoin: ValueCoinsObject, id: string) {
     let resulTotalProbability = ''
     if (id === 'Michicoin') { resulTotalProbability = id + " " + valueCoin.michiCoinValue + "." }
     if (id === 'Mooncat') { resulTotalProbability = id + " " + valueCoin.moonCatValue + "." }
