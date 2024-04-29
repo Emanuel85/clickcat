@@ -1,3 +1,3 @@
-export { default as Counter } from '@/Modules/CounterCoins/components'
-export { default as Ability } from '@/Modules/Ability/components'
-export { default as Builds } from '@/Modules/Builds/components'
+export { default as Coins } from '@/Modules/Coins/components'
+export { default as Skills } from '@/Modules/Skills/components'
+export { default as Buildings } from '@/Modules/Buildings/components'

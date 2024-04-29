@@ -1,10 +1,10 @@
 'use client'
 import { contextValueGame } from '@/utils/Provider'
 import React, { useContext } from 'react'
-import { Buttons, Tooltips } from '@/Modules/Ability/ui'
-import { totalOverwriteProbability,sumProbability } from '@/Modules/Ability/hooks/'
+import { Buttons, Tooltips } from '@/Modules/Skills/ui'
+import { totalOverwriteProbability,sumProbability } from '@/Modules/Skills/hooks/'
 import { ProbabilityObject } from '@/utils/type'
-import abilityData from '@/Modules/Ability/utils/ability.json'
+import abilityData from '@/Modules/Skills/utils/ability.json'
 import Style from './index.module.css'
 
 

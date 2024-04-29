@@ -1,11 +1,11 @@
 'use client'
 import React, { useContext } from 'react'
-import buildsData from '@/Modules/Builds/utils/builds.json'
+import buildsData from '@/Modules/Buildings/utils/builds.json'
 import Style from './index.module.css'
-import { Buttons, Tooltips } from '@/Modules/Builds/ui'
+import { Buttons, Tooltips } from '@/Modules/Buildings/ui'
 import { contextValueGame } from '@/utils/Provider'
 import { ValueCoinsObject } from '@/utils/type'
-import { changeValueCoins, totalOverwriteValueCoins } from '@/Modules/Builds/hooks'
+import { changeValueCoins, totalOverwriteValueCoins } from '@/Modules/Buildings/hooks'
 
 export const index = () => {
   const { valueCoins, setValueCoins } = useContext(contextValueGame)
