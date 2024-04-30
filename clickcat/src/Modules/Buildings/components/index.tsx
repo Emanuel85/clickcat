@@ -35,8 +35,9 @@ export const index = () => {
               toolTipTotalProbability={handleTotalProbability(valueCoins, id)}
               toolTipID={id}
             >
-              <div>
-                <Buttons onClick={() => handleSumValueCoins(value, id)}>
+              <div hidden={false}>
+                <Buttons 
+                 onClick={() => handleSumValueCoins(value, id)}>
                   {name}
                 </Buttons>
               </div>

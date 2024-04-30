@@ -24,6 +24,14 @@ export interface ProbabilityObject {
     moonCatProbabilityValue: number
 }
 
+export interface BuildingsObject {
+    id: string,
+    name: string,
+    value: number,
+    description: string,
+    image: string
+}
+
 export type ContextCoin = {
     coins: CoinsObject,
     setCoins: React.Dispatch<React.SetStateAction<CoinsObject>>,
@@ -31,4 +39,6 @@ export type ContextCoin = {
     setProbability: React.Dispatch<React.SetStateAction<ProbabilityObject>>
     valueCoins: ValueCoinsObject,
     setValueCoins: React.Dispatch<React.SetStateAction<ValueCoinsObject>>
+    buildings: BuildingsObject[],
+    setBuildings: React.Dispatch<React.SetStateAction<BuildingsObject[]>>
 }
