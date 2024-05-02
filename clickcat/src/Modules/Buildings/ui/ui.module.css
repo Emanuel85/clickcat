@@ -6,3 +6,9 @@
     color: white;
 }
 
+.button:disabled {
+  background-color: gray; /* Cambia el color de fondo */
+  color: white; /* Cambia el color del texto */
+  cursor: pointer /* Cambia el cursor */
+}
+

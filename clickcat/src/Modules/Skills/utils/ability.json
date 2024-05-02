@@ -2,28 +2,32 @@
 	{
 		"id":"Michicoin",
 		"name": "Habilidad 1",
-		"value": 0.02,
+		"quantityProbability":  0.02,
+		"skillsCost": 7,
 		"description": "Aumenta la probabilidad de la Michicoint",
 		"image": "IMAGEN"
 	},
 	{
 		"id":"Mooncat",
 		"name": "Habilidad 2",
-		"value": 0.2,
+		"quantityProbability": 0.2,
+		"skillsCost": 4,
 		"description": "Aumenta la probabilidad de la Mooncat",
 		"image": "IMAGEN"
 	},
 	{
 		"id":"Michicoin y Mooncat",
 		"name": "Habilidad 3",
-		"value": 2,
+		"quantityProbability": 2,
+		"skillsCost": 9,
 		"description": "Aumenta la probabilidad de la Michicoint y Mooncat",
 		"image": "IMAGEN"
 	},
 	{
 		"id":"Michicoin",
 		"name": "Habilidad 4",
-		"value": 0.5,
+		"quantityProbability": 0.5,
+		"skillsCost": 2,
 		"description": "Aumenta la probabilidad de la Michicoint",
 		"image": "IMAGEN"
 	}

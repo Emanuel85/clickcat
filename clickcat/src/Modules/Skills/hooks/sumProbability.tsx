@@ -5,14 +5,14 @@ import { ProbabilityObject } from "@/utils/type";
 
 export default function sumProbability(
     { michiProbabilityValeu, moonCatProbabilityValue }: ProbabilityObject,
-    value: number,
+    quantityProbability: number,
     id: string
 ) {
-    if (id === 'Michicoin') michiProbabilityValeu = michiProbabilityValeu + value
-    if (id === 'Mooncat') moonCatProbabilityValue = moonCatProbabilityValue + value
+    if (id === 'Michicoin') michiProbabilityValeu = michiProbabilityValeu + quantityProbability
+    if (id === 'Mooncat') moonCatProbabilityValue = moonCatProbabilityValue + quantityProbability
     if (id === 'Michicoin y Mooncat') {
-        moonCatProbabilityValue = moonCatProbabilityValue + value
-        michiProbabilityValeu = michiProbabilityValeu + value
+        moonCatProbabilityValue = moonCatProbabilityValue + quantityProbability
+        michiProbabilityValeu = michiProbabilityValeu + quantityProbability
     }
 
     return { michiProbabilityValeu, moonCatProbabilityValue }
