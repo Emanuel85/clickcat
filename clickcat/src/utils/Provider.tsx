@@ -1,87 +1,119 @@
 'use client'
 import React, { ReactNode, useEffect, useState } from 'react'
-import { BuildingsObject, CoinsObject, ContextCoin, ProbabilityObject, ValueCoinsObject } from './type'
-import dataPruebaBuildings from '@/Modules/Buildings/utils/builds.json'
+import { BuildingsObject, CoinsObject, ContextCoin, ProbabilityObject, SkillsObject, ValueCoinsObject } from './type'
+import dataBuildings from '@Buildings/utils/builds.json'
+import dataSkills from '@Skills/utils/ability.json'
 
-
-const IcoinsInicialState: CoinsObject = {
-    miauStar: 0,
-    moonCat: 0,
-    michiCoin: 0
+const IcoinsInitialState: CoinsObject = {
+  miauStar: 0,
+  moonCat: 0,
+  michiCoin: 0
 }
 
-const IprobabilityInicialState: ProbabilityObject = {
-    michiProbabilityValeu: 10,
-    moonCatProbabilityValue: 30
+const IprobabilityInitialState: ProbabilityObject = {
+  michiProbabilityValeu: 10,
+  moonCatProbabilityValue: 30
 }
 
-const IvalueCoinsInicialState: ValueCoinsObject = {
-    miauStarValue: 1,
-    moonCatValue: 1,
-    michiCoinValue: 1
+const IvalueCoinsInitialState: ValueCoinsObject = {
+  miauStarValue: 1,
+  moonCatValue: 1,
+  michiCoinValue: 1
 }
 
-const BuildingsObjectInicialState: BuildingsObject = {
-    id: "",
-    name: "",
-    value: 0,
-    description: "",
-    image: ""
+const BuildingsObjectInitialState: BuildingsObject = {
+  id: "",
+  name: {
+    title: "",
+    id: ""
+  },
+  quantityCoins: 0,
+  buildingCost: 0,
+  description: "",
+  image: ""
 }
 
+const SkillsObjectInitialState: SkillsObject = {
+  id: "",
+  name: "",
+  quantityProbability: 0,
+  skillsCost: 0,
+  description: "",
+  image: ""
+}
 
 export const contextValueGame = React.createContext<ContextCoin>({
-    coins: IcoinsInicialState,
-    setCoins: () => { },
-    probability: IprobabilityInicialState,
-    setProbability: () => { },
-    valueCoins: IvalueCoinsInicialState,
-    setValueCoins: () => { },
-    buildings: [BuildingsObjectInicialState],
-    setBuildings: () => { }
+  coins: IcoinsInitialState,
+  setCoins: () => { },
+  probability: IprobabilityInitialState,
+  setProbability: () => { },
+  valueCoins: IvalueCoinsInitialState,
+  setValueCoins: () => { },
+  buildings: [BuildingsObjectInitialState],
+  setBuildings: () => { },
+  skills: [SkillsObjectInitialState],
+  setSkills: () => { }
 },)
 
 
 const Provider = ({ children }: { children: ReactNode }) => {
-    const [coins, setCoins] = useState<CoinsObject>(IcoinsInicialState)
-    const [probability, setProbability] = useState<ProbabilityObject>(IprobabilityInicialState)
-    const [valueCoins, setValueCoins] = useState<ValueCoinsObject>(IvalueCoinsInicialState)
-    const [buildings, setBuildings] = useState<BuildingsObject[]>([BuildingsObjectInicialState])
-    // const [buildingCost, setBuildingCost] = useState
+  const [coins, setCoins] = useState<CoinsObject>(IcoinsInitialState)
+  const [probability, setProbability] = useState<ProbabilityObject>(IprobabilityInitialState)
+  const [valueCoins, setValueCoins] = useState<ValueCoinsObject>(IvalueCoinsInitialState)
+  const [buildings, setBuildings] = useState<BuildingsObject[]>([BuildingsObjectInitialState])
+  const [skills, setSkills] = useState<SkillsObject[]>([SkillsObjectInitialState])
 
+console.log(buildings)
+  const handleSetBuilding = (data: BuildingsObject[]) => {
+    const dataFormatBuilding = data.map(({ id, name, quantityCoins, buildingCost, description, image }) => {
+      return {
+        id,
+        name,
+        quantityCoins,
+        buildingCost,
+        description,
+        image
+      }
+    })
+    setBuildings(dataFormatBuilding)
+  }
 
-    const handleSetBuilding = (data: BuildingsObject[]) => {
-        const dataFormatBuilding = data.map(({ id, name, value, description, image }) => {
-            return {
-                id: id,
-                name: name,
-                value: value,
-                description: description,
-                image: image
-            }
-        })
-        setBuildings(dataFormatBuilding)
-    }
+  const handleSetSkills = (data: SkillsObject[]) => {
+    const dataFormatSkills = data.map(({ id, name, quantityProbability, skillsCost, description, image }) => {
+      return {
+        id,
+        name,
+        quantityProbability,
+        skillsCost,
+        description,
+        image
+      }
+    })
+    setSkills(dataFormatSkills)
+  }
 
-    useEffect(() => {
-        handleSetBuilding(dataPruebaBuildings)
-    }, [])
+  useEffect(() => {
+    handleSetBuilding(dataBuildings)
+    handleSetSkills(dataSkills)
+  }, [])
 
-    return (
-        <contextValueGame.Provider
-            value={{
-                coins,
-                setCoins,
-                probability,
-                setProbability,
-                valueCoins,
-                setValueCoins,
-                buildings,
-                setBuildings
-            }}>
-            {children}
-        </contextValueGame.Provider>
-    )
+  return (
+    <contextValueGame.Provider
+      value={{
+        coins,
+        setCoins,
+        probability,
+        setProbability,
+        valueCoins,
+        setValueCoins,
+        buildings,
+        setBuildings,
+        skills,
+        setSkills
+      }}>
+      {children}
+    </contextValueGame.Provider>
+  )
 }
 
 export default Provider

@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface propsButton extends React.ButtonHTMLAttributes<HTMLButtonElement> { }
 export interface propsLabel extends React.LabelHTMLAttributes<HTMLLabelElement> { }
 
@@ -26,8 +28,21 @@ export interface ProbabilityObject {
 
 export interface BuildingsObject {
     id: string,
+    name: {
+        title: string,
+        id: string
+    },
+    quantityCoins: number,
+    buildingCost: number,
+    description: string,
+    image: string
+}
+
+export interface SkillsObject {
+    id: string,
     name: string,
-    value: number,
+    quantityProbability: number,
+    skillsCost: number,
     description: string,
     image: string
 }
@@ -41,4 +56,6 @@ export type ContextCoin = {
     setValueCoins: React.Dispatch<React.SetStateAction<ValueCoinsObject>>
     buildings: BuildingsObject[],
     setBuildings: React.Dispatch<React.SetStateAction<BuildingsObject[]>>
+    skills: SkillsObject[],
+    setSkills: React.Dispatch<React.SetStateAction<SkillsObject[]>>
 }
