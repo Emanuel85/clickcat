@@ -52,7 +52,9 @@ export const contextValueGame = React.createContext<ContextCoin>({
   buildings: [BuildingsObjectInitialState],
   setBuildings: () => { },
   skills: [SkillsObjectInitialState],
-  setSkills: () => { }
+  setSkills: () => { },
+  buttonDisabledBuilding: false,
+  setButtonDisabledBuilding: () => { }
 },)
 
 
@@ -62,8 +64,10 @@ const Provider = ({ children }: { children: ReactNode }) => {
   const [valueCoins, setValueCoins] = useState<ValueCoinsObject>(IvalueCoinsInitialState)
   const [buildings, setBuildings] = useState<BuildingsObject[]>([BuildingsObjectInitialState])
   const [skills, setSkills] = useState<SkillsObject[]>([SkillsObjectInitialState])
+  const [buttonDisabledBuilding, setButtonDisabledBuilding] = useState(true)
 
-console.log(buildings)
+
+  console.log(buildings)
   const handleSetBuilding = (data: BuildingsObject[]) => {
     const dataFormatBuilding = data.map(({ id, name, quantityCoins, buildingCost, description, image }) => {
       return {
@@ -109,7 +113,9 @@ console.log(buildings)
         buildings,
         setBuildings,
         skills,
-        setSkills
+        setSkills,
+        buttonDisabledBuilding,
+        setButtonDisabledBuilding
       }}>
       {children}
     </contextValueGame.Provider>

@@ -57,5 +57,7 @@ export type ContextCoin = {
     buildings: BuildingsObject[],
     setBuildings: React.Dispatch<React.SetStateAction<BuildingsObject[]>>
     skills: SkillsObject[],
-    setSkills: React.Dispatch<React.SetStateAction<SkillsObject[]>>
+    setSkills: React.Dispatch<React.SetStateAction<SkillsObject[]>>,
+    buttonDisabledBuilding: boolean,
+    setButtonDisabledBuilding: React.Dispatch<React.SetStateAction<boolean>>
 }

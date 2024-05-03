@@ -4,11 +4,11 @@ import Style from './index.module.css'
 import { Buttons, Tooltips } from '@Buildings/ui'
 import { contextValueGame } from '@/utils/Provider'
 import { ValueCoinsObject } from '@/utils/type'
-import { changeBuildingCost, changeValueCoins, totalOverwriteValueCoins } from '@Buildings/hooks'
+import { changeBuildingCost, changeValueCoins, totalOverwriteValueCoins, changeRestaCoins } from '@Buildings/hooks'
 
 export const index = () => {
-  const { valueCoins, setValueCoins, buildings, setBuildings } = useContext(contextValueGame)
-  
+  const { valueCoins, setValueCoins, buildings, setBuildings, buttonDisabledBuilding, setCoins } = useContext(contextValueGame)
+
 
   const handleTotalProbability = (valueCoins: ValueCoinsObject, id: string) => {
     return totalOverwriteValueCoins(valueCoins, id)
@@ -19,6 +19,17 @@ export const index = () => {
     setValueCoins(valueCoin => {
       const res = changeValueCoins(valueCoin, quantityCoins, id)
       return res
+    })
+  }
+
+  const handleRestaBuildingCost = (id: string) => {
+    buildings.map(building => {
+      if (building.name.id === id) {
+        setCoins(coin => {
+          const res = changeRestaCoins(coin, building.buildingCost)
+          return res
+        })
+      }
     })
   }
 
@@ -36,6 +47,7 @@ export const index = () => {
 
 
 
+
   return (
     <div >
       Estructuras
@@ -48,12 +60,13 @@ export const index = () => {
               toolTipTotalProbability={handleTotalProbability(valueCoins, id)}
               toolTipID={id}
             >
-              <div hidden={false}>
+              <div>
                 <Buttons
-                  // disabled={buttonDisabled}
+                  disabled={buttonDisabledBuilding}
                   onClick={() => {
                     handleSumValueCoins(quantityCoins, id)
                     handleBuildingCost(name.id)
+                    handleRestaBuildingCost(name.id)
                   }}>
                   {name.title}
                 </Buttons>
