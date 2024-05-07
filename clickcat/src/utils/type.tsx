@@ -32,6 +32,7 @@ export interface BuildingsObject {
         title: string,
         id: string
     },
+    disabled: boolean
     quantityCoins: number,
     buildingCost: number,
     description: string,
@@ -57,7 +58,5 @@ export type ContextCoin = {
     buildings: BuildingsObject[],
     setBuildings: React.Dispatch<React.SetStateAction<BuildingsObject[]>>
     skills: SkillsObject[],
-    setSkills: React.Dispatch<React.SetStateAction<SkillsObject[]>>,
-    buttonDisabledBuilding: boolean,
-    setButtonDisabledBuilding: React.Dispatch<React.SetStateAction<boolean>>
+    setSkills: React.Dispatch<React.SetStateAction<SkillsObject[]>>
 }

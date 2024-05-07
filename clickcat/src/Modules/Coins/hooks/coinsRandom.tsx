@@ -12,6 +12,7 @@ export default function coinsRandom(
   { miauStarValue, moonCatValue, michiCoinValue }: ValueCoinsObject
 ): CoinsObject {
 
+  
   const michiCoinProbability = michiProbabilityValeu
   const moonCatProbability = moonCatProbabilityValue
   const random = new Random();

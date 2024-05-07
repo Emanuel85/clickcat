@@ -1,5 +1,5 @@
 'use client'
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import Style from './index.module.css'
 import { Buttons, Tooltips } from '@Buildings/ui'
 import { contextValueGame } from '@/utils/Provider'
@@ -7,8 +7,7 @@ import { ValueCoinsObject } from '@/utils/type'
 import { changeBuildingCost, changeValueCoins, totalOverwriteValueCoins, changeRestaCoins } from '@Buildings/hooks'
 
 export const index = () => {
-  const { valueCoins, setValueCoins, buildings, setBuildings, buttonDisabledBuilding, setCoins } = useContext(contextValueGame)
-
+  const { valueCoins, setValueCoins, buildings, setBuildings, setCoins } = useContext(contextValueGame)
 
   const handleTotalProbability = (valueCoins: ValueCoinsObject, id: string) => {
     return totalOverwriteValueCoins(valueCoins, id)
@@ -36,7 +35,7 @@ export const index = () => {
   const handleBuildingCost = (id: string) => {
     const updatedBuildings = buildings.map(building => {
       if (building.name.id === id) {
-        return { ...building, buildingCost: changeBuildingCost(buildings, id) };
+        return { ...building, buildingCost: changeBuildingCost(buildings) };
       }
       return building;
     });
@@ -51,7 +50,7 @@ export const index = () => {
   return (
     <div >
       Estructuras
-      {buildings.map(({ id, name, quantityCoins, buildingCost, description, image, }) => {
+      {buildings.map(({ id, name, disabled, quantityCoins, buildingCost, description, image, }) => {
         return (
           <div className={Style.containerStructure} >
             <Tooltips
@@ -62,7 +61,7 @@ export const index = () => {
             >
               <div>
                 <Buttons
-                  disabled={buttonDisabledBuilding}
+                  disabled={disabled}
                   onClick={() => {
                     handleSumValueCoins(quantityCoins, id)
                     handleBuildingCost(name.id)

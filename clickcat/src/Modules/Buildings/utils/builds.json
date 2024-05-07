@@ -5,6 +5,7 @@
 			"title": "Estructura 1",
 			"id": "building01"
 		},
+		"disabled": true,
 		"quantityCoins": 1,
 		"buildingCost": 4,
 		"description": "Cada estructura produce",
@@ -16,6 +17,7 @@
 			"title": "Estructura 2",
 			"id": "building02"
 		},
+		"disabled": true,
 		"quantityCoins": 1,
 		"buildingCost": 7,
 		"description": "Cada estructura produce",
@@ -27,6 +29,7 @@
 			"title": "Estructura 3",
 			"id": "building03"
 		},
+		"disabled": true,
 		"quantityCoins": 1,
 		"buildingCost": 2,
 		"description": "Cada estructura produce",
