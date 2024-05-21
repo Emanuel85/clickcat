@@ -9,11 +9,11 @@ import { changeBuildingCost, changeValueCoins, totalOverwriteValueCoins, changeR
 export const index = () => {
   const { valueCoins, setValueCoins, buildings, setBuildings, setCoins } = useContext(contextValueGame)
 
-  const handleTotalProbability = (valueCoins: ValueCoinsObject, id: string) => {
-    return totalOverwriteValueCoins(valueCoins, id)
+  const handleTotalCost = (valueCoins: ValueCoinsObject, id: string, buildingCoinName:string) => {
+    return totalOverwriteValueCoins(valueCoins, id, buildingCoinName)
   }
 
-  //Esta handle maneja el cambio del valor de las monedas
+  //Redefine el cambio del valor de las coins
   const handleSumValueCoins = (quantityCoins: number, id: string) => {
     setValueCoins(valueCoin => {
       const res = changeValueCoins(valueCoin, quantityCoins, id)
@@ -21,6 +21,8 @@ export const index = () => {
     })
   }
 
+
+  //Resta el costo del building a las coins
   const handleRestaBuildingCost = (id: string) => {
     buildings.map(building => {
       if (building.name.id === id) {
@@ -32,31 +34,30 @@ export const index = () => {
     })
   }
 
+
+  //Incrementa el costo de building
   const handleBuildingCost = (id: string) => {
     const updatedBuildings = buildings.map(building => {
       if (building.name.id === id) {
-        return { ...building, buildingCost: changeBuildingCost(buildings) };
+        return { ...building, buildingCost: changeBuildingCost(building) };
       }
       return building;
     });
-
     setBuildings(updatedBuildings);
   }
-
-
-
 
 
   return (
     <div >
       Estructuras
-      {buildings.map(({ id, name, disabled, quantityCoins, buildingCost, description, image, }) => {
+      {buildings.map(({ id, buildingCoinName, name, disabled, quantityCoins, buildingCost, description, image, }) => {
         return (
           <div className={Style.containerStructure} >
             <Tooltips
               toolTipDescription={description}
-              toolTipValueProbability={quantityCoins}
-              toolTipTotalProbability={handleTotalProbability(valueCoins, id)}
+              toolTipValueCost={quantityCoins}
+              toolTipTotalCost={handleTotalCost(valueCoins, id, buildingCoinName)}
+              tooltipNameCoin={buildingCoinName}
               toolTipID={id}
             >
               <div>
@@ -69,7 +70,7 @@ export const index = () => {
                   }}>
                   {name.title}
                 </Buttons>
-                {buildingCost}
+                {`Costo: ${buildingCost}`}
               </div>
             </Tooltips>
           </div>

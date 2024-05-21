@@ -17,20 +17,20 @@ const Index = () => {
     })
   }
 
-  const handleTotalProbability = (probability: ProbabilityObject, id: string) => {
-    return totalOverwriteProbability(probability, id)
+  const handleTotalProbability = (probability: ProbabilityObject, id: string, skillCoinName: string) => {  
+    return totalOverwriteProbability(probability, id, skillCoinName)
   }
 
 
   return (
     <div>Habilidades
-      {skills.map(({ id, name, quantityProbability, skillsCost, description, image, }) => {
+      {skills.map(({ id, skillCoinName, name, quantityProbability, skillsCost, description, image, }) => {
         return (
           <div className={Style.containerAbility}>
             <Tooltips
               toolTipDescription={description}
               toolTipValueProbability={quantityProbability}
-              toolTipTotalProbability={handleTotalProbability(probability, id)}
+              toolTipTotalProbability={handleTotalProbability(probability, id, skillCoinName)}
               toolTipID={id}
             >
               <div>
@@ -38,7 +38,7 @@ const Index = () => {
                   onClick={() => handleProbability(quantityProbability, id)}>
                   {name}
                 </Buttons>
-                {skillsCost}
+                {`Costo: ${skillsCost}`}
               </div>
             </Tooltips>
           </div>)

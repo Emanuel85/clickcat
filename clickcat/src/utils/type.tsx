@@ -3,13 +3,23 @@ import React from "react";
 export interface propsButton extends React.ButtonHTMLAttributes<HTMLButtonElement> { }
 export interface propsLabel extends React.LabelHTMLAttributes<HTMLLabelElement> { }
 
-export interface propsTooltips {
+export interface propsTooltipsSkills {
     toolTipDescription: string;
     toolTipValueProbability: number;
     toolTipTotalProbability: string;
-    toolTipID: string
-    children: any
+    toolTipID: string;
+    children: any;
 }
+
+export interface propsTooltipsBuilding {
+    toolTipDescription: string;
+    toolTipValueCost: number;
+    toolTipTotalCost: string;
+    toolTipID: string;
+    tooltipNameCoin:string;
+    children: any;
+}
+
 export interface CoinsObject {
     miauStar: number;
     moonCat: number;
@@ -28,6 +38,7 @@ export interface ProbabilityObject {
 
 export interface BuildingsObject {
     id: string,
+    buildingCoinName:string,
     name: {
         title: string,
         id: string
@@ -41,6 +52,7 @@ export interface BuildingsObject {
 
 export interface SkillsObject {
     id: string,
+    skillCoinName:string,
     name: string,
     quantityProbability: number,
     skillsCost: number,

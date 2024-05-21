@@ -1,8 +1,9 @@
 import React from 'react'
 import { Tooltip, Typography } from "@material-tailwind/react";
-import { propsTooltips } from '@/utils/type'
+import { propsTooltipsSkills } from '@/utils/type'
+import coinsColorAssignment from '@/utils/coinsColorAssignment';
 
-export const Tooltips = ({ children, toolTipDescription, toolTipValueProbability, toolTipTotalProbability, toolTipID }: propsTooltips,) => {
+export const Tooltips = ({ children, toolTipDescription, toolTipValueProbability, toolTipTotalProbability, toolTipID }: propsTooltipsSkills,) => {
  
   return (
     <div>
@@ -38,44 +39,7 @@ export const Tooltips = ({ children, toolTipDescription, toolTipValueProbability
               </Typography>
               {
                 //Modifica los colores de las monedas para una mejor visualizacion
-                toolTipID === 'Michicoin' ?
-                  < Typography
-                    color="white"
-                    className="font-extrabold opacity-80 text-blue-500"
-                  >
-                    {toolTipTotalProbability}
-                  </Typography>
-                  :
-                  toolTipID === 'Mooncat' ?
-                    < Typography
-                      color="white"
-                      className="font-extrabold opacity-80 text-violet-500"
-                    >
-                      {toolTipTotalProbability}
-                    </Typography>
-                    :
-                    toolTipID === 'Miaustar' ?
-                      < Typography
-                        color="white"
-                        className="font-extrabold opacity-80 text-pink-600"
-                      >
-                        {toolTipTotalProbability}
-                      </Typography> :
-                      //separa Mooncat 34.60% Michicoin 14.60%. en Mooncat 34.60% y Michicoin 14.60% para asignar su color
-                      <>
-                        < Typography
-                          color="white"
-                          className="font-extrabold opacity-80 text-violet-500"
-                        >
-                          {toolTipTotalProbability.slice(0, 14)}
-                        </Typography>
-                        < Typography
-                          color="white"
-                          className="font-extrabold opacity-80 text-blue-500 pl-1"
-                        >
-                          {toolTipTotalProbability.slice(14)}
-                        </Typography>
-                      </>
+                coinsColorAssignment(toolTipID, toolTipTotalProbability)
               }
 
             </div>
