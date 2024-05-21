@@ -3,10 +3,11 @@ import React, { useContext, useEffect } from 'react'
 import { contextValueGame } from '@/utils/Provider'
 import { coinsRandom } from '@/Modules/Coins/hooks';
 import Style from './index.module.css'
-import { disabledButtonBuilding } from '../utils';
+import { disableEntitydButton } from '../utils';
+// import { Skills } from '@/Modules';
 
 const Index = () => {
-  const { coins, setCoins, probability, valueCoins, buildings, setBuildings } = useContext(contextValueGame)
+  const { coins, setCoins, probability, valueCoins, buildings, setBuildings, skills, setSkills } = useContext(contextValueGame)
 
   //Este handle maneja la suma de las monedas basado en su probabilidad y valor de moneda
   const handleCount = () => {
@@ -21,16 +22,28 @@ const Index = () => {
   // }
 
   useEffect(() => {
-    const disabled = buildings.map(building => {
+    const disabledBuilding = buildings.map(building => {
       if (coins.miauStar >= building.buildingCost) {
-        return { ...building, disabled: disabledButtonBuilding(buildings, building.name.id, false) }
+        return { ...building, disabled: disableEntitydButton(buildings, building.name.id, false) }
       }
       else if (coins.miauStar <= building.buildingCost) {
-        return { ...building, disabled: disabledButtonBuilding(buildings, building.name.id, true) }
+        return { ...building, disabled: disableEntitydButton(buildings, building.name.id, true) }
       }
       return building
     })
-    setBuildings(disabled)
+    setBuildings(disabledBuilding)
+
+    const disabledSkills = skills.map(skill => {
+      if (coins.miauStar >= skill.skillsCost) {
+        return { ...skill, disabled: disableEntitydButton(skills, skill.name.id, false) }
+      } else if (coins.miauStar <= skill.skillsCost) {
+        return { ...skill, disabled: disableEntitydButton(skills, skill.name.id, true) }
+      }
+      return skill
+    })
+
+    setSkills(disabledSkills)
+
   }, [coins])
 
 

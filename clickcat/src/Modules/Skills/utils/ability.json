@@ -1,35 +1,51 @@
 [
 	{
-		"id":"michi",
-		"skillCoinName":"Michicoin",
-		"name": "Habilidad 1",
-		"quantityProbability":  0.02,
+		"id": "michi",
+		"skillCoinName": "Michicoin",
+		"disabled": true,
+		"name": {
+			"title": "Habilidad 1",
+			"id": "habilidad01"
+		},
+		"quantityProbability": 0.02,
 		"skillsCost": 7,
 		"description": "Aumenta la probabilidad de la Michicoint",
 		"image": "IMAGEN"
 	},
 	{
-		"id":"moon",
-		"skillCoinName":"Mooncat",
-		"name": "Habilidad 2",
+		"id": "moon",
+		"skillCoinName": "Mooncat",
+		"disabled": true,
+		"name": {
+			"title": "Habilidad 2",
+			"id": "habilidad02"
+		},
 		"quantityProbability": 0.2,
 		"skillsCost": 4,
 		"description": "Aumenta la probabilidad de la Mooncat",
 		"image": "IMAGEN"
 	},
 	{
-		"id":"michiMoon",
-		"skillCoinName":"Michicoin y Mooncat",
-		"name": "Habilidad 3",
+		"id": "michiMoon",
+		"skillCoinName": "Michicoin y Mooncat",
+		"disabled": true,
+		"name": {
+			"title": "Habilidad 3",
+			"id": "habilidad03"
+		},
 		"quantityProbability": 2,
 		"skillsCost": 9,
 		"description": "Aumenta la probabilidad de la Michicoint y Mooncat",
 		"image": "IMAGEN"
 	},
 	{
-		"id":"michi",
-		"skillCoinName":"Michicoin",
-		"name": "Habilidad 4",
+		"id": "michi",
+		"skillCoinName": "Michicoin",
+		"disabled": true,
+		"name": {
+			"title": "Habilidad 4",
+			"id": "habilidad04"
+		},
 		"quantityProbability": 0.5,
 		"skillsCost": 2,
 		"description": "Aumenta la probabilidad de la Michicoint",

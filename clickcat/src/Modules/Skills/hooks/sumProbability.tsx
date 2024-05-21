@@ -8,9 +8,9 @@ export default function sumProbability(
     quantityProbability: number,
     id: string
 ) {
-    if (id === 'Michicoin') michiProbabilityValeu = michiProbabilityValeu + quantityProbability
-    if (id === 'Mooncat') moonCatProbabilityValue = moonCatProbabilityValue + quantityProbability
-    if (id === 'Michicoin y Mooncat') {
+    if (id === 'michi') michiProbabilityValeu = michiProbabilityValeu + quantityProbability
+    if (id === 'moon') moonCatProbabilityValue = moonCatProbabilityValue + quantityProbability
+    if (id === 'michiMoon') {
         moonCatProbabilityValue = moonCatProbabilityValue + quantityProbability
         michiProbabilityValeu = michiProbabilityValeu + quantityProbability
     }

@@ -16,7 +16,7 @@ export interface propsTooltipsBuilding {
     toolTipValueCost: number;
     toolTipTotalCost: string;
     toolTipID: string;
-    tooltipNameCoin:string;
+    tooltipNameCoin: string;
     children: any;
 }
 
@@ -38,12 +38,12 @@ export interface ProbabilityObject {
 
 export interface BuildingsObject {
     id: string,
-    buildingCoinName:string,
+    buildingCoinName: string,
     name: {
         title: string,
         id: string
     },
-    disabled: boolean
+    disabled: boolean,
     quantityCoins: number,
     buildingCost: number,
     description: string,
@@ -52,8 +52,12 @@ export interface BuildingsObject {
 
 export interface SkillsObject {
     id: string,
-    skillCoinName:string,
-    name: string,
+    skillCoinName: string,
+    disabled: boolean,
+    name: {
+        title: string,
+        id: string
+    },
     quantityProbability: number,
     skillsCost: number,
     description: string,

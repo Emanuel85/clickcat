@@ -38,7 +38,11 @@ const BuildingsObjectInitialState: BuildingsObject = {
 const SkillsObjectInitialState: SkillsObject = {
   id: "",
   skillCoinName: "",
-  name: "",
+  disabled: true,
+  name: {
+    title: "",
+    id: ""
+  },
   quantityProbability: 0,
   skillsCost: 0,
   description: "",
@@ -83,11 +87,12 @@ const Provider = ({ children }: { children: ReactNode }) => {
   }
 
   const handleSetSkills = (data: SkillsObject[]) => {
-    const dataFormatSkills = data.map(({ id, skillCoinName, name, quantityProbability, skillsCost, description, image }) => {
+    const dataFormatSkills = data.map(({ id, skillCoinName, disabled, name, quantityProbability, skillsCost, description, image }) => {
       return {
         id,
         skillCoinName,
         name,
+        disabled,
         quantityProbability,
         skillsCost,
         description,

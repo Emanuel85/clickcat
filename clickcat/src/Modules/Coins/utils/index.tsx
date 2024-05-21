@@ -1,1 +1,1 @@
-export { default as disabledButtonBuilding } from './disableButtonBuilding'
+export { default as disableEntitydButton } from './disableEntitydButton'

@@ -51,6 +51,7 @@ export const index = () => {
     <div >
       Estructuras
       {buildings.map(({ id, buildingCoinName, name, disabled, quantityCoins, buildingCost, description, image, }) => {
+        console.log('habilitado building',disabled)
         return (
           <div className={Style.containerStructure} >
             <Tooltips

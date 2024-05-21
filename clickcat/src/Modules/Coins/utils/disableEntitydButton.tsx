@@ -1,11 +1,13 @@
-import { BuildingsObject } from "@/utils/type";
+import { BuildingsObject, SkillsObject } from "@/utils/type";
 
-export default function disabledButtonBuilding(
-    buildings: BuildingsObject[],
+type BuildingOrSkill = BuildingsObject[] | SkillsObject[]
+
+export default function disableEntitydButton(
+    objects: BuildingOrSkill,
     id: string,
     disabled: boolean) {
     let result = true
-    buildings.forEach(
+    objects.forEach(
         item => {
             if (item.name.id === id && item.disabled === true) {
                 result = disabled
@@ -15,7 +17,6 @@ export default function disabledButtonBuilding(
 
         }
     )
-
-
+    console.log('Deshabilitar', id, result)
     return result
-}
+}   
