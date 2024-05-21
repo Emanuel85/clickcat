@@ -1,18 +1,20 @@
 [
 	{
-		"id": "Miaustar",
+		"id": "miau",
+		"buildingCoinName":"Miaustar",
 		"name": {
 			"title": "Estructura 1",
 			"id": "building01"
 		},
 		"disabled": true,
-		"quantityCoins": 1,
+		"quantityCoins": 2,
 		"buildingCost": 4,
 		"description": "Cada estructura produce",
 		"image": "IMAGEN"
 	},
 	{
-		"id": "Mooncat",
+		"id": "moon",
+		"buildingCoinName":"Mooncat",
 		"name": {
 			"title": "Estructura 2",
 			"id": "building02"
@@ -24,7 +26,8 @@
 		"image": "IMAGEN"
 	},
 	{
-		"id": "Michicoin",
+		"id": "michi",
+		"buildingCoinName":"Michicoin",
 		"name": {
 			"title": "Estructura 3",
 			"id": "building03"

@@ -5,8 +5,8 @@ export default function changeValueCoins(
     quantityCoins: number,
     id: string
 ) {
-    if (id === 'Michicoin') michiCoinValue = michiCoinValue + quantityCoins
-    if (id === 'Mooncat') moonCatValue = moonCatValue + quantityCoins
-    if (id === 'Miaustar') { miauStarValue = miauStarValue + quantityCoins }
+    if (id === 'michi') michiCoinValue = michiCoinValue + quantityCoins
+    if (id === 'moon') moonCatValue = moonCatValue + quantityCoins
+    if (id === 'miau') { miauStarValue = miauStarValue + quantityCoins }
     return { miauStarValue, moonCatValue, michiCoinValue }
 }

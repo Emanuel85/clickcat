@@ -1,6 +1,7 @@
 [
 	{
-		"id":"Michicoin",
+		"id":"michi",
+		"skillCoinName":"Michicoin",
 		"name": "Habilidad 1",
 		"quantityProbability":  0.02,
 		"skillsCost": 7,
@@ -8,7 +9,8 @@
 		"image": "IMAGEN"
 	},
 	{
-		"id":"Mooncat",
+		"id":"moon",
+		"skillCoinName":"Mooncat",
 		"name": "Habilidad 2",
 		"quantityProbability": 0.2,
 		"skillsCost": 4,
@@ -16,7 +18,8 @@
 		"image": "IMAGEN"
 	},
 	{
-		"id":"Michicoin y Mooncat",
+		"id":"michiMoon",
+		"skillCoinName":"Michicoin y Mooncat",
 		"name": "Habilidad 3",
 		"quantityProbability": 2,
 		"skillsCost": 9,
@@ -24,7 +27,8 @@
 		"image": "IMAGEN"
 	},
 	{
-		"id":"Michicoin",
+		"id":"michi",
+		"skillCoinName":"Michicoin",
 		"name": "Habilidad 4",
 		"quantityProbability": 0.5,
 		"skillsCost": 2,

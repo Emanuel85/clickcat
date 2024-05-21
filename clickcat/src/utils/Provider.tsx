@@ -23,6 +23,7 @@ const IvalueCoinsInitialState: ValueCoinsObject = {
 
 const BuildingsObjectInitialState: BuildingsObject = {
   id: "",
+  buildingCoinName: '',
   name: {
     title: "",
     id: ""
@@ -36,6 +37,7 @@ const BuildingsObjectInitialState: BuildingsObject = {
 
 const SkillsObjectInitialState: SkillsObject = {
   id: "",
+  skillCoinName: "",
   name: "",
   quantityProbability: 0,
   skillsCost: 0,
@@ -64,11 +66,11 @@ const Provider = ({ children }: { children: ReactNode }) => {
   const [buildings, setBuildings] = useState<BuildingsObject[]>([BuildingsObjectInitialState])
   const [skills, setSkills] = useState<SkillsObject[]>([SkillsObjectInitialState])
 
-
   const handleSetBuilding = (data: BuildingsObject[]) => {
-    const dataFormatBuilding = data.map(({ id, name, disabled, quantityCoins, buildingCost, description, image }) => {
+    const dataFormatBuilding = data.map(({ id, buildingCoinName, name, disabled, quantityCoins, buildingCost, description, image }) => {
       return {
         id,
+        buildingCoinName,
         name,
         disabled,
         quantityCoins,
@@ -81,9 +83,10 @@ const Provider = ({ children }: { children: ReactNode }) => {
   }
 
   const handleSetSkills = (data: SkillsObject[]) => {
-    const dataFormatSkills = data.map(({ id, name, quantityProbability, skillsCost, description, image }) => {
+    const dataFormatSkills = data.map(({ id, skillCoinName, name, quantityProbability, skillsCost, description, image }) => {
       return {
         id,
+        skillCoinName,
         name,
         quantityProbability,
         skillsCost,
