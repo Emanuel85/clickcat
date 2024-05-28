@@ -2,31 +2,32 @@
 import { contextValueGame } from '@/utils/Provider'
 import React, { useContext } from 'react'
 import { Buttons, Tooltips } from '@Skills/ui'
-import { totalOverwriteProbability, sumProbability } from '@Skills/hooks'
+import { totalOverwriteProbability, increaseProbability, subtractSkillCoins, amountSkillCost } from '@Skills/hooks'
 import { ProbabilityObject } from '@/utils/type'
 import Style from './index.module.css'
-import { changeRestaCoins } from '@/Modules/Buildings/hooks'
 
 
 const Index = () => {
-  const { probability, setProbability, skills, setCoins } = useContext(contextValueGame)
-
-  const handleProbability = (quantityProbability: number, id: string) => {
-    setProbability(probability => {
-      const res = sumProbability(probability, quantityProbability, id)
-      return res
-    })
-  }
+  const { probability, setProbability, skills, setSkills, setCoins } = useContext(contextValueGame)
 
   const handleTotalProbability = (probability: ProbabilityObject, id: string, skillCoinName: string) => {
     return totalOverwriteProbability(probability, id, skillCoinName)
   }
 
-  const handleRestaSkillCost = (id: string) => {
+  //Incrementa probabilidad de coins
+  const handleProbability = (quantityProbability: number, id: string) => {
+    setProbability(probability => {
+      const res = increaseProbability(probability, quantityProbability, id)
+      return res
+    })
+  }
+
+  //Resta costo de skill a coins
+  const handlesubtractSkillCoins = (id: string) => {
     skills.map(skill => {
-      if (skill.id === id) {
+      if (skill.name.id === id) {
         setCoins(coin => {
-          const res = changeRestaCoins(coin, skill.skillsCost)
+          const res = subtractSkillCoins(coin, skill.skillsCost)
           return res
         })
       }
@@ -34,33 +35,49 @@ const Index = () => {
   }
 
 
+  //Aumenta costo de skill
+  const handleamountBuildingCost = (id: string) => {
+    const amountSkill = skills.map(skill => {
+      if (skill.name.id === id) {
+        return { ...skill, skillsCost: amountSkillCost(skill) };
+      }
+      return skill;
+    });
+    setSkills(amountSkill);
+  }
+
+
   return (
-    <div>Habilidades
-      {skills.map(({ id, skillCoinName, name, disabled, quantityProbability, skillsCost, description, image, }) => {
-        console.log("habilitado skill",disabled)
-        return (
-          <div className={Style.containerAbility}>
-            <Tooltips
-              toolTipDescription={description}
-              toolTipValueProbability={quantityProbability}
-              toolTipTotalProbability={handleTotalProbability(probability, id, skillCoinName)}
-              toolTipID={id}
-            >
-              <div>
-                <Buttons
-                  disabled={disabled}
-                  onClick={() => {
-                    handleProbability(quantityProbability, id)
-                    handleRestaSkillCost(id)
-                  }
-                  }>
-                  {name.title}
-                </Buttons>
-                {`Costo: ${skillsCost}`}
-              </div>
-            </Tooltips>
-          </div >)
-      })
+    <div className={Style.containerSkills}>
+      <h2>
+        Habilidades
+      </h2>
+      {
+        skills.map(({ id, skillCoinName, name, disabled, quantityProbability, skillsCost, description, image, }) => {
+          return (
+            <div className={Style.containerTooltipsAndButtons}>
+              <Tooltips
+                description={description}
+                valueProbability={quantityProbability}
+                totalProbability={handleTotalProbability(probability, id, skillCoinName)}
+                ID={id}
+              >
+                <div>
+                  <Buttons
+                    className={Style.containerButtons}
+                    disabled={disabled}
+                    onClick={() => {
+                      handleProbability(quantityProbability, id)
+                      handleamountBuildingCost(name.id)
+                      handlesubtractSkillCoins(name.id)
+                    }}>
+                    {name.title}
+                  </Buttons>
+                  {`Costo: ${skillsCost}`}
+                </div>
+              </Tooltips>
+            </div >)
+        })
       }
     </div >
   )
