@@ -1,0 +1,10 @@
+.containerNavBar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.containerNavBar  label {
+   margin: 0 20px
+}
+
