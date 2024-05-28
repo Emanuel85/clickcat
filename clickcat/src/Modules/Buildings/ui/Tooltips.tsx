@@ -3,7 +3,7 @@ import { Tooltip, Typography } from "@material-tailwind/react";
 import { propsTooltipsBuilding } from '@/utils/type'
 import coinsColorAssignment from '@/utils/coinsColorAssignment';
 
-export const Tooltips = ({ children, toolTipDescription, toolTipValueCost, toolTipTotalCost, toolTipID, tooltipNameCoin }: propsTooltipsBuilding,) => {
+export const Tooltips = ({ children, description, valueCost, totalCost, ID, nameCoin }: propsTooltipsBuilding,) => {
 
   return (
     <div>
@@ -14,20 +14,20 @@ export const Tooltips = ({ children, toolTipDescription, toolTipValueCost, toolT
               color="white"
               className="font-light opacity-80"
             >
-              {toolTipDescription}
+              {description}
             </Typography>
             <div className='flex flex-row'>
               <Typography
                 color="white"
                 className=" font-bold opacity-80 text-white"
               >
-                {`+${toolTipValueCost}`}
+                {`+${valueCost}`}
               </Typography>
               <Typography
                 color="white"
                 className="font-light opacity-80 pr-1 font"
               >
-                {`${tooltipNameCoin}`}
+                {`${nameCoin}`}
               </Typography>
             </div>
             <div className='flex flex-row'>
@@ -39,7 +39,7 @@ export const Tooltips = ({ children, toolTipDescription, toolTipValueCost, toolT
               </Typography>
               {
                 //Modifica los colores de las monedas para una mejor visualizacion
-                coinsColorAssignment(toolTipID, toolTipTotalCost)
+                coinsColorAssignment(ID, totalCost)
               }
             </div>
           </div>}

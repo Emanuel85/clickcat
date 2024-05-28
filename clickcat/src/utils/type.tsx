@@ -4,19 +4,19 @@ export interface propsButton extends React.ButtonHTMLAttributes<HTMLButtonElemen
 export interface propsLabel extends React.LabelHTMLAttributes<HTMLLabelElement> { }
 
 export interface propsTooltipsSkills {
-    toolTipDescription: string;
-    toolTipValueProbability: number;
-    toolTipTotalProbability: string;
-    toolTipID: string;
+    description: string;
+    valueProbability: number;
+    totalProbability: string;
+    ID: string;
     children: any;
 }
 
 export interface propsTooltipsBuilding {
-    toolTipDescription: string;
-    toolTipValueCost: number;
-    toolTipTotalCost: string;
-    toolTipID: string;
-    tooltipNameCoin: string;
+    description: string;
+    valueCost: number;
+    totalCost: string;
+    ID: string;
+    nameCoin: string;
     children: any;
 }
 

@@ -6,8 +6,7 @@ export const Buttons = ({ children, ...props }: propsButton,) => {
 
   return (
     <div>
-      <button
-        className={Style.button}
+      <button       
         {...props}
       >
         {children}
