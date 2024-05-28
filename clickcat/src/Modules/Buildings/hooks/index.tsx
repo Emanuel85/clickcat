@@ -1,4 +1,4 @@
-export { default as changeValueCoins } from './changeValueCoins'
+export { default as increaseValueCoins } from './increaseValueCoins'
 export { default as totalOverwriteValueCoins } from './totalOverwriteValueCoins'
-export { default as changeBuildingCost } from './changeBuildingCost'
-export { default as changeRestaCoins } from './changeRestaCoins'
+export { default as amountBuildingCost } from './amountBuildingCost'
+export { default as subtractBuildingCoins } from './subtractBuildingCoins'

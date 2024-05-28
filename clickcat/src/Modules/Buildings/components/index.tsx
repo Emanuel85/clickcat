@@ -4,42 +4,41 @@ import Style from './index.module.css'
 import { Buttons, Tooltips } from '@Buildings/ui'
 import { contextValueGame } from '@/utils/Provider'
 import { ValueCoinsObject } from '@/utils/type'
-import { changeBuildingCost, changeValueCoins, totalOverwriteValueCoins, changeRestaCoins } from '@Buildings/hooks'
+import { amountBuildingCost, increaseValueCoins, totalOverwriteValueCoins, subtractBuildingCoins } from '@Buildings/hooks'
 
 export const index = () => {
   const { valueCoins, setValueCoins, buildings, setBuildings, setCoins } = useContext(contextValueGame)
 
-  const handleTotalCost = (valueCoins: ValueCoinsObject, id: string, buildingCoinName:string) => {
+  //Envia a tooltip costo total a mostrar
+  const handleTotalCost = (valueCoins: ValueCoinsObject, id: string, buildingCoinName: string) => {
     return totalOverwriteValueCoins(valueCoins, id, buildingCoinName)
   }
 
-  //Redefine el cambio del valor de las coins
-  const handleSumValueCoins = (quantityCoins: number, id: string) => {
+  //Incrementa valor de coins
+  const handleincreaseValueCoins = (quantityCoins: number, id: string) => {
     setValueCoins(valueCoin => {
-      const res = changeValueCoins(valueCoin, quantityCoins, id)
+      const res = increaseValueCoins(valueCoin, quantityCoins, id)
       return res
     })
   }
 
-
-  //Resta el costo del building a las coins
-  const handleRestaBuildingCost = (id: string) => {
+  //Resta costo de building a coins
+  const handlesubtractBuildingCoins = (id: string) => {
     buildings.map(building => {
       if (building.name.id === id) {
         setCoins(coin => {
-          const res = changeRestaCoins(coin, building.buildingCost)
+          const res = subtractBuildingCoins(coin, building.buildingCost)
           return res
         })
       }
     })
   }
 
-
-  //Incrementa el costo de building
-  const handleBuildingCost = (id: string) => {
+  //Aumenta costo de building
+  const handleamountBuildingCost = (id: string) => {
     const updatedBuildings = buildings.map(building => {
       if (building.name.id === id) {
-        return { ...building, buildingCost: changeBuildingCost(building) };
+        return { ...building, buildingCost: amountBuildingCost(building) };
       }
       return building;
     });
@@ -48,38 +47,48 @@ export const index = () => {
 
 
   return (
-    <div >
-      Estructuras
-      {buildings.map(({ id, buildingCoinName, name, disabled, quantityCoins, buildingCost, description, image, }) => {
-        console.log('habilitado building',disabled)
-        return (
-          <div className={Style.containerStructure} >
-            <Tooltips
-              toolTipDescription={description}
-              toolTipValueCost={quantityCoins}
-              toolTipTotalCost={handleTotalCost(valueCoins, id, buildingCoinName)}
-              tooltipNameCoin={buildingCoinName}
-              toolTipID={id}
-            >
-              <div>
-                <Buttons
-                  disabled={disabled}
-                  onClick={() => {
-                    handleSumValueCoins(quantityCoins, id)
-                    handleBuildingCost(name.id)
-                    handleRestaBuildingCost(name.id)
-                  }}>
-                  {name.title}
-                </Buttons>
-                {`Costo: ${buildingCost}`}
-              </div>
-            </Tooltips>
-          </div>
-        )
-      })
-      }
+    <>
+      <style>
+        {`
+        .prueba{
+          background-color:green;
+          width:100%;
+        }
+  `}
+      </style>
+      <div className='prueba' >
+        Estructuras
+        {buildings.map(({ id, buildingCoinName, name, disabled, quantityCoins, buildingCost, description, image, }) => {
 
-    </div >
+          return (
+            <div className={Style.containerStructure} >
+              <Tooltips
+                description={description}
+                valueCost={quantityCoins}
+                totalCost={handleTotalCost(valueCoins, id, buildingCoinName)}
+                nameCoin={buildingCoinName}
+                ID={id}
+              >
+                <div>
+                  <Buttons
+                    disabled={disabled}
+                    onClick={() => {
+                      handleincreaseValueCoins(quantityCoins, id)
+                      handleamountBuildingCost(name.id)
+                      handlesubtractBuildingCoins(name.id)
+                    }}>
+                    {name.title}
+                  </Buttons>
+                  {`Costo: ${buildingCost}`}
+                </div>
+              </Tooltips>
+            </div>
+          )
+        })
+        }
+
+      </div >
+    </>
   )
 }
 
