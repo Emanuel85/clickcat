@@ -1,8 +1,13 @@
-.button{
-    width: 200px;
-    height: 50px;
-    background-color: blueviolet;
-    font-weight: 600;
-    color: white;
-}
+  /* .button {
+      width: 172px;
+      height: 72px;
+      background-image: url("../../../../public/images/buttonSkill.png");
+  }
 
+  .button:disabled {
+      width: 172px;
+      height: 72px;
+      background-image: url("../../../../public/images/buttonSkillDisabled.png");
+      color: white;
+      cursor: pointer
+  } */

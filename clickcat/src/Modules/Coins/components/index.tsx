@@ -48,18 +48,28 @@ const Index = () => {
 
 
   return (
-    <div>
-      <div>
-        <label>MiauStar: {coins.miauStar} </label>
-        <label>MoonCat: {coins.moonCat} </label>
-        <label>MichiCoin: {coins.michiCoin} </label>
+    <>
+      <style>
+        {`
+        .prueba3{
+          background-color:blue;
+          width:100%;
+        }
+  `}
+      </style>
+      <div className='prueba3'>
+        <div>
+          <label>MiauStar: {coins.miauStar} </label>
+          <label>MoonCat: {coins.moonCat} </label>
+          <label>MichiCoin: {coins.michiCoin} </label>
+        </div>
+        {/*Este button no utiliza el componente Buttons*/}
+        <button className={Style.btnPrincipal} onClick={() => {
+          handleCount()
+          // handleButtonDisabled()
+        }}>CORTA</button>
       </div>
-      {/*Este button no utiliza el componente Buttons*/}
-      <button className={Style.btnPrincipal} onClick={() => {
-        handleCount()
-        // handleButtonDisabled()
-      }}>CORTA</button>
-    </div>
+    </>
   )
 }
 

@@ -1,4 +1,32 @@
-.containerAbility{
+.containerSkills {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.containerSkills>h2 {
+    color: white;
+}
+
+.containerTooltipsAndButtons {
     margin: 10px 0;
     color: white;
 }
+
+.containerButtons {
+    width: 175px;
+    height: 72px;
+    color: black;
+    background-image: url("../../../../public/images/buttonSkill.png");
+}
+
+.containerButtons:disabled {
+    width: 175px;
+    height: 72px;
+    background-image: url("../../../../public/images/buttonSkillDisabled.png");
+    color: rgb(176, 176, 176);
+    cursor: pointer
+}
+
