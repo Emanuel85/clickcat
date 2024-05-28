@@ -17,6 +17,5 @@ export default function disableEntitydButton(
 
         }
     )
-    console.log('Deshabilitar', id, result)
     return result
 }   
