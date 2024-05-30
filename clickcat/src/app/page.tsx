@@ -1,12 +1,13 @@
 import Image from "next/image";
 import { Skills, Buildings, Coins } from '@/Modules/index'
 import Navbar from "@/Modules/Coins/components/Navbar";
+import  Style  from "./index.module.css";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-slate-800 text-white">
+    <main className={Style.containerIndex}>
         <Navbar />
-      <div className="z-10 w-screen max-w-5xl items-center justify-between font-mono text-sm lg:flex">
+      <div className={Style.entities}>
         <Skills />
         <Coins />
         <Buildings />
